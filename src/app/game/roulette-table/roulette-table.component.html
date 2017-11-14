@@ -2,10 +2,20 @@
   <table class="table">
     <tbody>
     <tr>
-      <td rowspan="3" class="text-center hoverable">
-        <div class="text-center">
-        0
+      <td rowspan="3" class="text-center hoverable vertical-center">
+        <div class="row">
+          <div class="col">
+            <i class="fa fa-minus-circle" (click)="minusOne(constants.iZERO)"></i>
+          </div>
+          <div class="col">
+            <div>0</div>
+            <div>{{chipCount[constants.iZERO]}}</div>
+          </div>
+          <div class="col">
+            <i class="fa fa-plus-circle" (click)="plusOne(constants.iZERO)"></i>
+          </div>
         </div>
+
       </td>
       <td>3</td>
       <td>6</td>
@@ -52,23 +62,92 @@
       <td style="border: 0px solid black">
       </td>
       <td colspan="4" class="text-center hoverable" >
-        1st 12
+        <div class="row">
+          <div class="col"><i class="fa fa-minus-circle" (click)="minusOne(constants.iFIRST_TWELVE)"></i></div>
+          <div class="col">
+            <div>1st 12</div>
+            <div>{{chipCount[constants.iFIRST_TWELVE]}}</div>
+          </div>
+          <div class="col"><i class="fa fa-plus-circle" (click)="plusOne(constants.iFIRST_TWELVE)"></i></div>
+        </div>
       </td>
-    <td colspan="4" class="text-center hoverable">
-      2nd 12
-    </td>
-    <td colspan="4" class="text-center hoverable">
-      3rd 12
-    </td>
+      <td colspan="4" class="text-center hoverable">
+        <div class="row">
+          <div class="col"><i class="fa fa-minus-circle" (click)="minusOne(constants.iSECOND_TWELVE)"></i></div>
+          <div class="col">
+            <div>2nd 12</div>
+            <div>{{chipCount[constants.iSECOND_TWELVE]}}</div>
+          </div>
+          <div class="col"><i class="fa fa-plus-circle" (click)="plusOne(constants.iSECOND_TWELVE)"></i></div>
+        </div>
+      </td>
+      <td colspan="4" class="text-center hoverable">
+        <div class="row">
+          <div class="col"><i class="fa fa-minus-circle" (click)="minusOne(constants.iTHIRD_TWELVE)"></i></div>
+          <div class="col">
+            <div>3rd 12</div>
+            <div>{{chipCount[constants.iTHIRD_TWELVE]}}</div>
+          </div>
+          <div class="col"><i class="fa fa-plus-circle" (click)="plusOne(constants.iTHIRD_TWELVE)"></i></div>
+        </div>
+      </td>
     </tr>
     <tr>
       <td style="border: 0px"></td>
-      <td colspan="2" class="hoverable">1To18</td>
-      <td colspan="2" class="hoverable">Even</td>
-      <td colspan="2">Red</td>
-      <td colspan="2">Black</td>
-      <td colspan="2" class="hoverable">Odd</td>
-      <td colspan="2" class="hoverable">19To36</td>
+      <td colspan="2" class="hoverable">
+        <div class="row">
+          <div class="col"><i class="fa fa-minus-circle" (click)="minusOne(constants.iFIRST_EIGHTEEN)"></i></div>
+          <div class="col">
+            <div>1To18</div>
+            <div>{{chipCount[constants.iFIRST_EIGHTEEN]}}</div>
+          </div>
+          <div class="col"><i class="fa fa-plus-circle" (click)="plusOne(constants.iFIRST_EIGHTEEN)"></i></div>
+        </div>
+      </td>
+      <td colspan="2" class="hoverable">
+        <div class="row">
+          <div class="col"><i class="fa fa-minus-circle" (click)="minusOne(constants.iEVEN)"></i></div>
+          <div class="col">
+            <div>Even</div>
+            <div>{{chipCount[constants.iEVEN]}}</div>
+          </div>
+          <div class="col"><i class="fa fa-plus-circle" (click)="plusOne(constants.iEVEN)"></i></div>
+        </div>
+      </td>
+      <td colspan="2">
+        <div class="row text-center">
+          <div class="col" style="visibility: hidden"><i class="fa fa-plus-circle"></i></div>
+          <div class="col">Red</div>
+          <div class="col" style="visibility: hidden"><i class="fa fa-plus-circle"></i></div>
+        </div>
+      </td>
+      <td colspan="2">
+        <div class="row text-center">
+          <div class="col" style="visibility: hidden"><i class="fa fa-plus-circle"></i></div>
+          <div class="col">Black</div>
+          <div class="col" style="visibility: hidden"><i class="fa fa-plus-circle"></i></div>
+        </div>
+      </td>
+      <td colspan="2" class="hoverable">
+        <div class="row">
+          <div class="col"><i class="fa fa-minus-circle" (click)="minusOne(constants.iODD)"></i></div>
+          <div class="col">
+            <div>Odd</div>
+            <div>{{chipCount[constants.iODD]}}</div>
+          </div>
+          <div class="col"><i class="fa fa-plus-circle" (click)="plusOne(constants.iODD)"></i></div>
+        </div>
+      </td>
+      <td colspan="2" class="hoverable">
+        <div class="row">
+          <div class="col"><i class="fa fa-minus-circle" (click)="minusOne(constants.iLAST_EIGHTEEN)"></i></div>
+          <div class="col">
+            <div>19To36</div>
+            <div>{{chipCount[constants.iLAST_EIGHTEEN]}}</div>
+          </div>
+          <div class="col"><i class="fa fa-plus-circle" (click)="plusOne(constants.iLAST_EIGHTEEN)"></i></div>
+        </div>
+      </td>
     </tr>
     </tbody>
   </table>

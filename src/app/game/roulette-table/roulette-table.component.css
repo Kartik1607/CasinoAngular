@@ -8,7 +8,30 @@ td {
   border: 1px solid black;
 }
 
-.hoverable:hover {
+.vertical-center {
+  vertical-align: middle !important;
+}
+
+.hoverable {
+  text-align: center;
   background: red;
   color: white;
 }
+
+/*.hoverable:before {*/
+  /*float: left;*/
+  /*content: '-';*/
+  /*background: green;*/
+  /*cursor: pointer;*/
+  /*height: 100%;*/
+  /*display: block;*/
+/*}*/
+
+/*.hoverable:after {*/
+  /*display: block;*/
+  /*height:100%;*/
+  /*float: right;*/
+  /*content: '+';*/
+  /*background: green;*/
+  /*cursor: pointer;*/
+/*}*/
