@@ -10,8 +10,8 @@ import { HeaderComponent } from './common/header/header.component';
 import {RouterModule} from '@angular/router';
 import { appRoutes } from './common/Routes';
 import {FormsModule} from '@angular/forms';
-import {GameServiceService} from "./services/game-service.service";
-import {HttpModule} from "@angular/http";
+import {GameServiceService} from './services/game-service.service';
+import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [

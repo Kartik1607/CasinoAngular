@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {GameServiceService} from '../../services/game-service.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-roulette-table',
@@ -8,8 +10,19 @@ import { Component, OnInit } from '@angular/core';
 export class RouletteTableComponent implements OnInit {
 
   chipCount: number[];
-  userBalance: number;
   userBet: number;
+  user: {
+    id: number,
+    name: string,
+    contactNumber: number,
+    dateOfBirth: any,
+    emailAddress: string,
+    idProofLocation: string,
+    balanceAmount: number,
+    blockedAmount: number,
+    uid: number
+  };
+  private userId: string;
   constants = {
     iZERO: 0,
     iFIRST_TWELVE: 1,
@@ -20,14 +33,30 @@ export class RouletteTableComponent implements OnInit {
     iODD: 6,
     iEVEN: 7,
   }
+  userBalance: number;
 
-  constructor() {
+  constructor(private gameService: GameServiceService, private router: Router) {
+    if (localStorage.getItem('LOGIN') ) {
+      this.userId = localStorage.getItem('UID');
+    } else {
+      router.navigate(['/']);
+    }
+
     this.chipCount  = [0, 0, 0, 0, 0, 0, 0, 0];
     this.userBet = 0;
-    this.userBalance = 5000;
   }
 
   ngOnInit() {
+    this.gameService.getUserById(this.userId)
+      .subscribe(item => {
+        if (item.data !== null) {
+          this.user = item.data;
+          this.userBalance = this.user.balanceAmount;
+        } else {
+          localStorage.removeItem('LOGIN');
+          this.router.navigate(['/']);
+        }
+      });
   }
 
   minusOne(index) {
@@ -47,6 +76,11 @@ export class RouletteTableComponent implements OnInit {
     this.userBalance -= 500;
     this.userBet += 500;
     this.chipCount[index]++;
+  }
+
+  placeBet() {
+    this.gameService.placeBet(this.userId, this.chipCount)
+      .subscribe(data => console.log(data));
   }
 
 }

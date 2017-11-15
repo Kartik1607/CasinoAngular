@@ -11,7 +11,7 @@
     <div class="card-body">
       <div class="mb-3">
         <label for="LoginID">Unique User ID</label>
-        <input [(ngModel)]="userId"
+        <input [(ngModel)]="userId" [class.is-invalid] = "!loginStatus"
           type="number" class="form-control" id="LoginID" placeholder="Enter Unique ID" required>
         <div class="invalid-feedback">
           Unique ID not found. Please try again.

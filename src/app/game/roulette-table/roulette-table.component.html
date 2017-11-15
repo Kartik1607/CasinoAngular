@@ -1,5 +1,9 @@
 <!--<img src="/assets/background.jpg" class="background"/>-->
-<div class="container">
+<div *ngIf="!user">
+  <h1 class="display-1">Loading. Please wait</h1>
+</div>
+
+<div *ngIf="user" class="container">
 
   <div class="row">
   <table class="table table-responsive">
@@ -161,7 +165,7 @@
       <app-score [bets]="chipCount"></app-score>
     </div>
     <div class="col">
-      <app-user userName="Kartik" [userBet]="userBet" [userBalance]="userBalance"></app-user>
+      <app-user [userName]="user.name" [userBet]="userBet" [userBalance]="userBalance" (playClicked)="placeBet()"></app-user>
     </div>
   </div>
 </div>
