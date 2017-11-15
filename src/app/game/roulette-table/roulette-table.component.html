@@ -1,5 +1,7 @@
 <div class="container">
-  <table class="table">
+
+  <div class="row">
+  <table class="table table-responsive">
     <tbody>
     <tr>
       <td rowspan="3" class="text-center hoverable vertical-center">
@@ -151,4 +153,14 @@
     </tr>
     </tbody>
   </table>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <app-score [bets]="chipCount"></app-score>
+    </div>
+    <div class="col">
+      <app-user userName="Kartik" [userBet]="userBet" [userBalance]="userBalance"></app-user>
+    </div>
+  </div>
 </div>

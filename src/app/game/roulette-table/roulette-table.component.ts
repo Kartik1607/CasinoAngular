@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class RouletteTableComponent implements OnInit {
 
   chipCount: number[];
+  userBalance: number;
+  userBet: number;
   constants = {
     iZERO: 0,
     iFIRST_TWELVE: 1,
@@ -21,6 +23,8 @@ export class RouletteTableComponent implements OnInit {
 
   constructor() {
     this.chipCount  = [0, 0, 0, 0, 0, 0, 0, 0];
+    this.userBet = 0;
+    this.userBalance = 5000;
   }
 
   ngOnInit() {
@@ -30,10 +34,18 @@ export class RouletteTableComponent implements OnInit {
     if (this.chipCount[index] === 0) {
       return;
     }
+    this.userBalance += 500;
+    this.userBet -= 500;
     this.chipCount[index]--;
   }
 
   plusOne(index) {
+    if (this.userBalance < 500) {
+      //TODO: show error
+      return;
+    }
+    this.userBalance -= 500;
+    this.userBet += 500;
     this.chipCount[index]++;
   }
 
