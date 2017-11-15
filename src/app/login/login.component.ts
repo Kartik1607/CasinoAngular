@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GameServiceService} from '../services/game-service.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  userId: number;
+
+  constructor(private gameService: GameServiceService) {
+  }
 
   ngOnInit() {
   }
 
+  loginUser() {
+    this.gameService.getUserById(this.userId)
+      .subscribe((res) => console.log(res));
+  }
 }
+

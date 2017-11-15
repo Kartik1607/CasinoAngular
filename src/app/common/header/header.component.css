@@ -1,0 +1,7 @@
+.bg-gradient {
+  background: linear-gradient(0deg, transparent, black);
+}
+
+a {
+  color: white;
+}

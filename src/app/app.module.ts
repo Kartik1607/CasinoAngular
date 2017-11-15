@@ -7,6 +7,11 @@ import { ScoreComponent } from './game/roulette-table/score/score.component';
 import { UserComponent } from './game/user/user.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './common/header/header.component';
+import {RouterModule} from '@angular/router';
+import { appRoutes } from './common/Routes';
+import {FormsModule} from '@angular/forms';
+import {GameServiceService} from "./services/game-service.service";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -18,9 +23,12 @@ import { HeaderComponent } from './common/header/header.component';
     HeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [GameServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
