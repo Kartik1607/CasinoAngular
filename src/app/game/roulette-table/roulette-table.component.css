@@ -5,7 +5,10 @@
 }
 
 td {
-  border: 1px solid black;
+  border: 5px solid white;
+  color: white;
+  background-color: green;
+  text-align: center;
 }
 
 .vertical-center {
@@ -24,3 +27,4 @@ td {
   bottom: 0;
   z-index: -100;
 }
+

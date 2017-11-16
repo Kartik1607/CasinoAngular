@@ -1,4 +1,4 @@
-<!--<img src="/assets/background.jpg" class="background"/>-->
+<img src="/assets/background.jpg" class="background"/>
 <div *ngIf="!user">
   <h1 class="display-1">Loading. Please wait</h1>
 </div>
@@ -22,7 +22,6 @@
             <i class="fa fa-plus-circle" (click)="plusOne(constants.iZERO)"></i>
           </div>
         </div>
-
       </td>
       <td>3</td>
       <td>6</td>
@@ -66,7 +65,7 @@
       <td>34</td>
     </tr>
     <tr>
-      <td style="border: 0px solid black">
+      <td style="border: 0px solid black; background: transparent">
       </td>
       <td colspan="4" class="text-center hoverable" >
         <div class="row">
@@ -100,12 +99,12 @@
       </td>
     </tr>
     <tr>
-      <td style="border: 0px"></td>
+      <td style="border: 0px; background: transparent"></td>
       <td colspan="2" class="hoverable">
         <div class="row">
           <div class="col"><i class="fa fa-minus-circle" (click)="minusOne(constants.iFIRST_EIGHTEEN)"></i></div>
           <div class="col">
-            <div>1To18</div>
+            <div>1&nbsp;-&nbsp;18</div>
             <div>{{chipCount[constants.iFIRST_EIGHTEEN]}}</div>
           </div>
           <div class="col"><i class="fa fa-plus-circle" (click)="plusOne(constants.iFIRST_EIGHTEEN)"></i></div>
@@ -149,7 +148,7 @@
         <div class="row">
           <div class="col"><i class="fa fa-minus-circle" (click)="minusOne(constants.iLAST_EIGHTEEN)"></i></div>
           <div class="col">
-            <div>19To36</div>
+            <div>19&nbsp;-&nbsp;36</div>
             <div>{{chipCount[constants.iLAST_EIGHTEEN]}}</div>
           </div>
           <div class="col"><i class="fa fa-plus-circle" (click)="plusOne(constants.iLAST_EIGHTEEN)"></i></div>
@@ -171,3 +170,4 @@
     </div>
   </div>
 </div>
+
