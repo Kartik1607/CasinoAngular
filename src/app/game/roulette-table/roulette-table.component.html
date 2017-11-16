@@ -165,7 +165,9 @@
       <app-score [bets]="chipCount"></app-score>
     </div>
     <div class="col">
-      <app-user [userName]="user.name" [userBet]="userBet" [userBalance]="userBalance" (playClicked)="placeBet()"></app-user>
+
+      <app-user *ngIf="isPlacingBet" [userName]="user.name" [userBet]="userBet" [userBalance]="userBalance" (playClicked)="placeBet()"></app-user>
+      <app-result *ngIf="!isPlacingBet" [chipCount]="chipCount" [userId]="user.uid" (onRetry)="resetGame()"></app-result>
     </div>
   </div>
 </div>

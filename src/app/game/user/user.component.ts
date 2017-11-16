@@ -2,6 +2,9 @@ import {
   Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges,
   ViewChild
 } from '@angular/core';
+import {Router} from '@angular/router';
+
+declare var $: any;
 
 @Component({
   selector: 'app-user',
@@ -15,7 +18,7 @@ export class UserComponent implements OnInit, OnChanges {
   @Input() userBet: number;
   @Output() playClicked: EventEmitter<boolean> = new EventEmitter();
   isAllowedToPlay: boolean;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -29,5 +32,10 @@ export class UserComponent implements OnInit, OnChanges {
   }
   onPlayClicked() {
     this.playClicked.emit(true);
+  }
+
+  onLogout() {
+    localStorage.removeItem('LOGIN');
+      this.router.navigate(['/']);
   }
 }

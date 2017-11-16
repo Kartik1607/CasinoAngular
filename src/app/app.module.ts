@@ -12,6 +12,7 @@ import { appRoutes } from './common/Routes';
 import {FormsModule} from '@angular/forms';
 import {GameServiceService} from './services/game-service.service';
 import {HttpModule} from '@angular/http';
+import { ResultComponent } from './game/roulette-table/result/result.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {HttpModule} from '@angular/http';
     ScoreComponent,
     UserComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,

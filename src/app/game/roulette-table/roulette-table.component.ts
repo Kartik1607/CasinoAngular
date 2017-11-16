@@ -34,6 +34,10 @@ export class RouletteTableComponent implements OnInit {
     iEVEN: 7,
   }
   userBalance: number;
+  isPlacingBet = true;
+  resultAmountWon: number;
+  resultAmountBetted: number;
+  randomNumber: number;
 
   constructor(private gameService: GameServiceService, private router: Router) {
     if (localStorage.getItem('LOGIN') ) {
@@ -41,22 +45,10 @@ export class RouletteTableComponent implements OnInit {
     } else {
       router.navigate(['/']);
     }
-
-    this.chipCount  = [0, 0, 0, 0, 0, 0, 0, 0];
-    this.userBet = 0;
   }
 
   ngOnInit() {
-    this.gameService.getUserById(this.userId)
-      .subscribe(item => {
-        if (item.data !== null) {
-          this.user = item.data;
-          this.userBalance = this.user.balanceAmount;
-        } else {
-          localStorage.removeItem('LOGIN');
-          this.router.navigate(['/']);
-        }
-      });
+    this.resetGame();
   }
 
   minusOne(index) {
@@ -79,8 +71,23 @@ export class RouletteTableComponent implements OnInit {
   }
 
   placeBet() {
-    this.gameService.placeBet(this.userId, this.chipCount)
-      .subscribe(data => console.log(data));
+    this.isPlacingBet = !this.isPlacingBet;
   }
 
+  resetGame() {
+    this.isPlacingBet = true;
+    this.user = null;
+    this.chipCount  = [0, 0, 0, 0, 0, 0, 0, 0];
+    this.userBet = 0;
+    this.gameService.getUserById(this.userId)
+      .subscribe(item => {
+        if (item.data !== null) {
+          this.user = item.data;
+          this.userBalance = this.user.balanceAmount;
+        } else {
+          localStorage.removeItem('LOGIN');
+          this.router.navigate(['/']);
+        }
+      });
+  }
 }
