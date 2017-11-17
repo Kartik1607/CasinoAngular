@@ -1,4 +1,5 @@
-<div class="card" style="height: 90%;">
+<div *ngIf="!isSpinning">
+  <div class="card" style="height: 90%;">
   <div class="card-header text-center">
     Result
   </div>
@@ -20,22 +21,69 @@
 </div>
 
 
-<div id="logoutModal" class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Logout</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>This will end your session. Are you sure?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="onLogout()" data-dismiss="modal">Logout</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+  <div id="logoutModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Logout</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>This will end your session. Are you sure?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="onLogout()" data-dismiss="modal">Logout</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
       </div>
     </div>
   </div>
+</div>
+
+<div class="spinnerDiv" *ngIf="isSpinning">
+
+  <div class="roulette rotating" >
+    <div class="spinner">
+      <div class="triangle">
+        <!--span.text=String.fromCharCode(65+i)--><span class="text">1</span>
+      </div>
+      <div class="triangle">
+        <!--span.text=String.fromCharCode(65+i)--><span class="text">2</span>
+      </div>
+      <div class="triangle">
+        <!--span.text=String.fromCharCode(65+i)--><span class="text">3</span>
+      </div>
+      <div class="triangle">
+        <!--span.text=String.fromCharCode(65+i)--><span class="text">4</span>
+      </div>
+      <div class="triangle">
+        <!--span.text=String.fromCharCode(65+i)--><span class="text">5</span>
+      </div>
+      <div class="triangle">
+        <!--span.text=String.fromCharCode(65+i)--><span class="text">6</span>
+      </div>
+      <div class="triangle">
+        <!--span.text=String.fromCharCode(65+i)--><span class="text">7</span>
+      </div>
+      <div class="triangle">
+        <!--span.text=String.fromCharCode(65+i)--><span class="text">8</span>
+      </div>
+      <div class="triangle">
+        <!--span.text=String.fromCharCode(65+i)--><span class="text">9</span>
+      </div>
+      <div class="triangle">
+        <!--span.text=String.fromCharCode(65+i)--><span class="text">10</span>
+      </div>
+      <div class="triangle">
+        <!--span.text=String.fromCharCode(65+i)--><span class="text">11</span>
+      </div>
+      <div class="triangle">
+        <!--span.text=String.fromCharCode(65+i)--><span class="text">12</span>
+      </div>
+    </div>
+  </div>
+  <h1>Spinning your luck</h1>
+  <div class="button button-spin" [class.result]="hasResultArrived"><span>{{currentRandomNumber}}</span></div>
 </div>

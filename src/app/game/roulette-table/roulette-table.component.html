@@ -3,7 +3,13 @@
   <h1 class="display-1">Loading. Please wait</h1>
 </div>
 
-<div *ngIf="user" class="container">
+
+
+<div *ngIf="user" class="container my-4">
+
+  <p class="text-center roulette">
+    Roulette
+  </p>
 
   <div class="row">
   <table class="table table-responsive">
@@ -16,7 +22,7 @@
           </div>
           <div class="col">
             <div>0</div>
-            <div>{{chipCount[constants.iZERO]}}</div>
+            <div *ngIf="chipCount[constants.iZERO] > 0" class="chip">{{chipCount[constants.iZERO]}}</div>
           </div>
           <div class="col">
             <i class="fa fa-plus-circle" (click)="plusOne(constants.iZERO)"></i>
@@ -72,7 +78,7 @@
           <div class="col"><i class="fa fa-minus-circle" (click)="minusOne(constants.iFIRST_TWELVE)"></i></div>
           <div class="col">
             <div>1st 12</div>
-            <div>{{chipCount[constants.iFIRST_TWELVE]}}</div>
+            <div *ngIf="chipCount[constants.iFIRST_TWELVE] > 0" class="chip">{{chipCount[constants.iFIRST_TWELVE]}}</div>
           </div>
           <div class="col"><i class="fa fa-plus-circle" (click)="plusOne(constants.iFIRST_TWELVE)"></i></div>
         </div>
@@ -82,7 +88,7 @@
           <div class="col"><i class="fa fa-minus-circle" (click)="minusOne(constants.iSECOND_TWELVE)"></i></div>
           <div class="col">
             <div>2nd 12</div>
-            <div>{{chipCount[constants.iSECOND_TWELVE]}}</div>
+            <div *ngIf="chipCount[constants.iSECOND_TWELVE] > 0" class="chip">{{chipCount[constants.iSECOND_TWELVE]}}</div>
           </div>
           <div class="col"><i class="fa fa-plus-circle" (click)="plusOne(constants.iSECOND_TWELVE)"></i></div>
         </div>
@@ -92,7 +98,7 @@
           <div class="col"><i class="fa fa-minus-circle" (click)="minusOne(constants.iTHIRD_TWELVE)"></i></div>
           <div class="col">
             <div>3rd 12</div>
-            <div>{{chipCount[constants.iTHIRD_TWELVE]}}</div>
+            <div *ngIf="chipCount[constants.iTHIRD_TWELVE] > 0" class="chip">{{chipCount[constants.iTHIRD_TWELVE]}}</div>
           </div>
           <div class="col"><i class="fa fa-plus-circle" (click)="plusOne(constants.iTHIRD_TWELVE)"></i></div>
         </div>
@@ -105,7 +111,7 @@
           <div class="col"><i class="fa fa-minus-circle" (click)="minusOne(constants.iFIRST_EIGHTEEN)"></i></div>
           <div class="col">
             <div>1&nbsp;-&nbsp;18</div>
-            <div>{{chipCount[constants.iFIRST_EIGHTEEN]}}</div>
+            <div *ngIf="chipCount[constants.iFIRST_EIGHTEEN] > 0" class="chip">{{chipCount[constants.iFIRST_EIGHTEEN]}}</div>
           </div>
           <div class="col"><i class="fa fa-plus-circle" (click)="plusOne(constants.iFIRST_EIGHTEEN)"></i></div>
         </div>
@@ -115,7 +121,7 @@
           <div class="col"><i class="fa fa-minus-circle" (click)="minusOne(constants.iEVEN)"></i></div>
           <div class="col">
             <div>Even</div>
-            <div>{{chipCount[constants.iEVEN]}}</div>
+            <div *ngIf="chipCount[constants.iEVEN] > 0" class="chip">{{chipCount[constants.iEVEN]}}</div>
           </div>
           <div class="col"><i class="fa fa-plus-circle" (click)="plusOne(constants.iEVEN)"></i></div>
         </div>
@@ -139,7 +145,7 @@
           <div class="col"><i class="fa fa-minus-circle" (click)="minusOne(constants.iODD)"></i></div>
           <div class="col">
             <div>Odd</div>
-            <div>{{chipCount[constants.iODD]}}</div>
+            <div *ngIf="chipCount[constants.iODD] > 0" class="chip">{{chipCount[constants.iODD]}}</div>
           </div>
           <div class="col"><i class="fa fa-plus-circle" (click)="plusOne(constants.iODD)"></i></div>
         </div>
@@ -149,7 +155,7 @@
           <div class="col"><i class="fa fa-minus-circle" (click)="minusOne(constants.iLAST_EIGHTEEN)"></i></div>
           <div class="col">
             <div>19&nbsp;-&nbsp;36</div>
-            <div>{{chipCount[constants.iLAST_EIGHTEEN]}}</div>
+            <div *ngIf="chipCount[constants.iLAST_EIGHTEEN] > 0" class="chip">{{chipCount[constants.iLAST_EIGHTEEN]}}</div>
           </div>
           <div class="col"><i class="fa fa-plus-circle" (click)="plusOne(constants.iLAST_EIGHTEEN)"></i></div>
         </div>

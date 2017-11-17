@@ -4,8 +4,6 @@ import {
 } from '@angular/core';
 import {Router} from '@angular/router';
 
-declare var $: any;
-
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',

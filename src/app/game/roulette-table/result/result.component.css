@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:400,700,900");
+.spinnerDiv {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top:0;
+  left:0;
+  font-family: 'Work Sans', sans-serif;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 1s linear infinite;
+  -moz-animation: rotating 1s linear infinite;
+  -ms-animation: rotating 1s linear infinite;
+  -o-animation: rotating 1s linear infinite;
+  animation: rotating 1s linear infinite;
+}
+
+.roulette {
+  position: relative;
+  z-index: 1;
+  font-size: 1em;
+  width: 50em;
+  height: 50em;
+  top: 50%;
+  left: 50%;
+  margin-top: -25em;
+  margin-left: -25em;
+}
+.roulette .spinner {
+  width: 50em;
+  height: 50em;
+  position: relative;
+  -webkit-transition: -webkit-transform 2.5s cubic-bezier(0, 0.4, 0.4, 1.025);
+  transition: -webkit-transform 2.5s cubic-bezier(0, 0.4, 0.4, 1.025);
+  transition: transform 2.5s cubic-bezier(0, 0.4, 0.4, 1.025);
+  transition: transform 2.5s cubic-bezier(0, 0.4, 0.4, 1.025), -webkit-transform 2.5s cubic-bezier(0, 0.4, 0.4, 1.025);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transform-origin: 25em 25em;
+  transform-origin: 25em 25em;
+}
+
+.roulette .triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: -25em;
+  left: 25em;
+  -webkit-transform-origin: 0% 50em;
+  transform-origin: 0% 50em;
+  border: 0 solid transparent;
+  border-top-width: 50.125em;
+  border-right-width: 28.86751em;
+}
+.roulette .triangle:nth-of-type(1) {
+  -webkit-transform: rotate(30deg) scale(2);
+  transform: rotate(30deg) scale(2);
+  color: #dc0936;
+  border-top-color: #dc0936;
+  z-index: 11;
+}
+.roulette .triangle:nth-of-type(2) {
+  -webkit-transform: rotate(60deg) scale(2);
+  transform: rotate(60deg) scale(2);
+  color: #e5177b;
+  border-top-color: #e5177b;
+  z-index: 10;
+}
+.roulette .triangle:nth-of-type(3) {
+  -webkit-transform: rotate(90deg) scale(2);
+  transform: rotate(90deg) scale(2);
+  color: #be107f;
+  border-top-color: #be107f;
+  z-index: 9;
+}
+.roulette .triangle:nth-of-type(4) {
+  -webkit-transform: rotate(120deg) scale(2);
+  transform: rotate(120deg) scale(2);
+  color: #881f7e;
+  border-top-color: #881f7e;
+  z-index: 8;
+}
+.roulette .triangle:nth-of-type(5) {
+  -webkit-transform: rotate(150deg) scale(2);
+  transform: rotate(150deg) scale(2);
+  color: #3f297e;
+  border-top-color: #3f297e;
+  z-index: 7;
+}
+.roulette .triangle:nth-of-type(6) {
+  -webkit-transform: rotate(180deg) scale(2);
+  transform: rotate(180deg) scale(2);
+  color: #1d61ac;
+  border-top-color: #1d61ac;
+  z-index: 6;
+}
+.roulette .triangle:nth-of-type(7) {
+  -webkit-transform: rotate(210deg) scale(2);
+  transform: rotate(210deg) scale(2);
+  color: #169ed8;
+  border-top-color: #169ed8;
+  z-index: 5;
+}
+.roulette .triangle:nth-of-type(8) {
+  -webkit-transform: rotate(240deg) scale(2);
+  transform: rotate(240deg) scale(2);
+  color: #209b6c;
+  border-top-color: #209b6c;
+  z-index: 4;
+}
+.roulette .triangle:nth-of-type(9) {
+  -webkit-transform: rotate(270deg) scale(2);
+  transform: rotate(270deg) scale(2);
+  color: #60b236;
+  border-top-color: #60b236;
+  z-index: 3;
+}
+.roulette .triangle:nth-of-type(10) {
+  -webkit-transform: rotate(300deg) scale(2);
+  transform: rotate(300deg) scale(2);
+  color: #efe61f;
+  border-top-color: #efe61f;
+  z-index: 2;
+}
+.roulette .triangle:nth-of-type(11) {
+  -webkit-transform: rotate(330deg) scale(2);
+  transform: rotate(330deg) scale(2);
+  color: #f7a416;
+  border-top-color: #f7a416;
+  z-index: 1;
+}
+.roulette .triangle:nth-of-type(12) {
+  -webkit-transform: rotate(360deg) scale(2);
+  transform: rotate(360deg) scale(2);
+  color: #e6471d;
+  border-top-color: #e6471d;
+  z-index: 0;
+}
+
+.button {
+  display: block;
+  text-align: center;
+  font-weight: 800;
+  background: white;
+  position: absolute;
+  z-index: 999;
+  border-radius: 100%;
+  border: none;
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+  color: #333;
+  letter-spacing: -0.05em;
+}
+
+h1 {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  font-size: 2.4em;
+  margin: 0;
+  white-space: pre;
+  z-index: 999;
+  color: #FFF;
+  font-weight: 800;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+
+
+.button-spin {
+  width: 10em;
+  height: 10em;
+  line-height: 10em;
+  top: 50%;
+  left: 50%;
+  margin-left: -5em;
+  margin-top: -5em;
+  font-weight: 800;
+  z-index: 998;
+}
+
+.button-spin span {
+  font-size: 1.6em;
+}
+
+.result {
+  animation: fontSize 500ms linear 0s infinite alternate;
+}
+
+@keyframes fontSize {
+  from {
+    font-size:1.6em;
+  } to {
+    font-size: 2.4em;
+  }
+}
