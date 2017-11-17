@@ -1,42 +1,52 @@
-<div *ngIf="!isSpinning">
-  <div class="card" style="height: 90%;">
-  <div class="card-header text-center">
-    Result
-  </div>
-  <div class="card-body">
-    <div>
-      Bet: {{amountBetted}}
+<div id="resultModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{resultMessage}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+          Bet: {{amountBetted}}
+        </div>
+        <div>
+          Won: {{amountWon}}
+        </div>
+        <div>
+          Number: {{randomNumber}}
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" (click)="onRetryClicked()">Retry</button>
+        <button class="btn btn-primary"  data-toggle="modal" data-target="#logoutModal">Logout</button>
+      </div>
     </div>
-    <div>
-      Won: {{amountWon}}
-    </div>
-    <div>
-      Number: {{randomNumber}}
-    </div>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary" (click)="onRetry.emit(true)">Retry</button>
-    <button class="btn btn-primary" data-toggle="modal" data-target="#logoutModal">Logout</button>
   </div>
 </div>
 
+<div>
+  <button style="width: 100%" class="btn btn-primary m-2" (click)="onRetryClicked()">Retry</button>
+  <button style="width: 100%" class="btn btn-dark m-2"  data-toggle="modal" data-target="#logoutModal">Logout</button>
+</div>
 
-  <div id="logoutModal" class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Logout</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>This will end your session. Are you sure?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="onLogout()" data-dismiss="modal">Logout</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        </div>
+
+<div id="logoutModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Logout</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>This will end your session. Are you sure?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="onLogout()" data-dismiss="modal">Logout</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>
@@ -87,3 +97,29 @@
   <h1>Spinning your luck</h1>
   <div class="button button-spin" [class.result]="hasResultArrived"><span>{{currentRandomNumber}}</span></div>
 </div>
+
+<audio *ngIf="isSpinning" autoplay loop>
+  <source src="/assets/sound/random.mp3" >
+</audio>
+
+<audio #hoverAudio>
+  <source src="/assets/sound/button_hover.mp3">
+</audio>
+
+<audio loop #wonAudio>
+  <source src="/assets/sound/won.m4a">
+</audio>
+
+<audio loop #lostAudio>
+  <source src="/assets/sound/lost.m4a">
+</audio>
+
+
+<video *ngIf="hasUserWon" poster="/assets/wallpapper.jpg" playsinline autoplay muted loop>
+  <source src="/assets/money_falling.mp4" type="video/mp4">
+</video>
+
+<video *ngIf="!hasUserWon" poster="/assets/wallpapper.jpg" playsinline autoplay muted loop>
+  <source src="/assets/chips_falling.mp4" type="video/mp4">
+</video>
+

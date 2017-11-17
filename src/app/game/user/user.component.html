@@ -4,15 +4,15 @@
   </div>
   <div class="card-body">
     <div>
-      Bet: {{userBet}}
+      Balance: {{userBalance}}
     </div>
     <div>
-      Balance: {{userBalance}}
+      Bet: {{userBet}}
     </div>
   </div>
   <div class="card-footer">
-    <button class="btn btn-primary" data-toggle="modal" data-target="#myModal" [disabled]="!isAllowedToPlay">Play</button>
-    <button class="btn btn-primary" data-toggle="modal" data-target="#logoutModal">Logout</button>
+    <button class="btn btn-primary" (mouseover)="hoverAudio.play()" data-toggle="modal" data-target="#myModal" [disabled]="!isAllowedToPlay">Play</button>
+    <button class="btn btn-primary" (mouseover)="hoverAudio.play()" data-toggle="modal" data-target="#logoutModal">Logout</button>
   </div>
 </div>
 
@@ -56,3 +56,7 @@
     </div>
   </div>
 </div>
+
+<audio #hoverAudio>
+  <source src="/assets/sound/button_hover.mp3">
+</audio>

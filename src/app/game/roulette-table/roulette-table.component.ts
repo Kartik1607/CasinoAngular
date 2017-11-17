@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterContentInit, Component, OnInit, ViewChild} from '@angular/core';
 import {GameServiceService} from '../../services/game-service.service';
 import {Router} from '@angular/router';
+
+declare let $: any;
 
 @Component({
   selector: 'app-roulette-table',
@@ -35,9 +37,8 @@ export class RouletteTableComponent implements OnInit {
   }
   userBalance: number;
   isPlacingBet = true;
-  resultAmountWon: number;
-  resultAmountBetted: number;
   randomNumber: number;
+  @ViewChild('pokerChipAudio') pokerChipAudio;
 
   constructor(private gameService: GameServiceService, private router: Router) {
     if (localStorage.getItem('LOGIN') ) {
@@ -55,6 +56,7 @@ export class RouletteTableComponent implements OnInit {
     if (this.chipCount[index] === 0) {
       return;
     }
+    this.pokerChipAudio.nativeElement.play();
     this.userBalance += 500;
     this.userBet -= 500;
     this.chipCount[index]--;
@@ -65,6 +67,7 @@ export class RouletteTableComponent implements OnInit {
       //TODO: show error
       return;
     }
+    this.pokerChipAudio.nativeElement.play();
     this.userBalance -= 500;
     this.userBet += 500;
     this.chipCount[index]++;

@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {GameServiceService} from "../../../services/game-service.service";
-
+declare let $: any;
 
 @Component({
   selector: 'app-result',
@@ -15,6 +15,7 @@ export class ResultComponent implements OnInit {
   randomNumber: number;
   isSpinning = true;
   currentRandomNumber: number;
+  resultMessage: string;
   @Input() userId: number;
   @Input() chipCount: number[];
   @Output() onRetry: EventEmitter<boolean> = new EventEmitter();
@@ -22,6 +23,9 @@ export class ResultComponent implements OnInit {
   private currentTime = 0;
   private randomNumberInterval;
   hasResultArrived = false;
+  hasUserWon = false;
+  @ViewChild('wonAudio') wonAudio;
+  @ViewChild('lostAudio') lostAudio;
 
   constructor(private router: Router, private gameService: GameServiceService) { }
 
@@ -62,11 +66,25 @@ export class ResultComponent implements OnInit {
     this.currentRandomNumber = this.randomNumber;
     setTimeout(() => {
       this.isSpinning = false;
-    }, 5000);
+      if (this.amountWon > this.amountBetted) {
+        this.hasUserWon = true;
+        this.wonAudio.nativeElement.play();
+        this.resultMessage = 'You win!!';
+      }else {
+        this.lostAudio.nativeElement.play();
+        this.resultMessage = 'Bad luck. Try again!';
+      }
+      $('#resultModal').modal('show');
+    }, 2100);
   }
 
   onLogout() {
     localStorage.removeItem('LOGIN');
     this.router.navigate(['/']);
+  }
+
+  onRetryClicked() {
+    $('#resultModal').modal('hide');
+    this.onRetry.emit(true);
   }
 }
